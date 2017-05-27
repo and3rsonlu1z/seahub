@@ -129,7 +129,8 @@ class WOPIFilesView(APIView):
         result = {}
         # necessary
         result['BaseFileName'] = os.path.basename(file_path)
-        result['OwnerId'] = seafile_api.get_repo_owner(repo_id)
+        result['OwnerId'] = seafile_api.get_repo_owner(repo_id) or \
+                seafile_api.get_org_repo_owner(repo_id)
         result['Size'] = file_size
         result['UserId'] = request_user
         result['Version'] = obj_id
