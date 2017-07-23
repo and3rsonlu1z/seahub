@@ -2,6 +2,11 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
+class ShortenForm(forms.Form):
+	alias = forms.CharField(label='alias', max_length=15)
+	api = forms.CharField(widget=forms.HiddenInput())
+	url = forms.CharField(widget=forms.HiddenInput())
+
 class RepoShareForm(forms.Form):
     """
     Form for sharing repo to user or group.
