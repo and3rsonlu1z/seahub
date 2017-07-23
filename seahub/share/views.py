@@ -3,6 +3,7 @@
 import os
 import logging
 import json
+import requests
 from dateutil.relativedelta import relativedelta
 from constance import config
 
@@ -37,6 +38,13 @@ from seahub.profile.models import Profile
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
+########## shorten link
+def short_url(url):
+    post_url = 'https://shortly.cc/api?key=ETFbuA0JxQLn'
+    params = json.dumps({'url': https://github.com})
+    response = requests.GET(post_url,params)
+    return response.json()['short']
 
 ########## rpc wrapper
 def is_org_repo_owner(username, repo_id):
